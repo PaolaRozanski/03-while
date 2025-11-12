@@ -5,11 +5,25 @@
     */
 
     //ENTRADA
-
+    let min = 1;
+    let max = 30;
+    let jafoi = []
+   let numeroAleatorio = Math.floor(Math.random() * (max - min + 1)) + min;
+   let num = Number(prompt(`Escolha um número entre 1 e 30`))
+ 
 
     //PROCESSAMENTO
+    while (num > numeroAleatorio || num < numeroAleatorio) {
+       if (num > numeroAleatorio) {
+        alert(`Não foi dessa vez, o número é menor`)
+       } else {
+         alert(`Não foi dessa vez, o número é maior`)
+       }
+       jafoi.push(num)
+        num = Number(prompt(`Escolha outro número entre 1 e 30 \n Os números que já foram foi ${jafoi}`))
+    }
 
 
     //SAÍDA
-    
+    alert(`Parabéns você acertou o número é ${numeroAleatorio}`)
 </script>
