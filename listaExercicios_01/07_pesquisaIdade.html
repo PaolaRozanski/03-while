@@ -13,11 +13,61 @@
     */
 
     //ENTRADA
-
-
+    let somaSal = 0;
+    let qtdPessoas = 0;
+    let maiorIdade = 0;
+    let menorIdade = 999;
+    let qtdMulheres = 0;
+    let menorSal = 999999;
+    let idadeMenorSal = 0;
+    let sexoMenorSal = "";
+    
     //PROCESSAMENTO
+    while (true) {
+        let idade = Number(prompt("Idade (negativa para parar):"));
+
+        if (idade < 0) break;
+
+        while (isNaN(idade)) {
+            idade = Number(prompt("Digite apenas números.\nIdade:"));
+        }
+
+        let sexo = prompt("Sexo (M/F):").trim().toUpperCase();
+        while (sexo !== "M" && sexo !== "F") {
+            sexo = prompt("Digite M ou F.\nSexo:").trim().toUpperCase();
+        }
+
+        let salario = Number(prompt("Salário:"));
+        while (isNaN(salario)) {
+            salario = Number(prompt("Digite apenas números.\nSalário:"));
+        }
+
+        // Processamento simples
+        somaSal += salario;
+        qtdPessoas++;
+
+        if (idade > maiorIdade) maiorIdade = idade;
+        if (idade < menorIdade) menorIdade = idade;
+
+        if (sexo === "F") qtdMulheres++;
+
+        if (salario < menorSal) {
+            menorSal = salario;
+            idadeMenorSal = idade;
+            sexoMenorSal = sexo;
+        }
+    }
 
 
     //SAÍDA
+      alert(
+        `Média salarial: R$ ${(somaSal / qtdPessoas).toFixed(2)}
+        \n Maior idade: ${maiorIdade}
+        \n Menor idade: ${menorIdade} 
+        \n Quantidade de mulheres: ${qtdMulheres}
+        \n Menor salário: R$ ${menorSal}
+        \n Idade da pessoa com menor salário: ${idadeMenorSal}
+        \n Sexo da pessoa com menor salário: ${sexoMenorSal}`
+    );
 
 </script>

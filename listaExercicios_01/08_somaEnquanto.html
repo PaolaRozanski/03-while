@@ -5,11 +5,21 @@
     */
     
     //ENTRADA
-
+    let numero = 1;   
+    let soma = 0;
 
     //PROCESSAMENTO
+    while (numero !== 0) {
+        numero = Number(prompt("Digite um número (0 para parar):"));
 
+        while (isNaN(numero)) {
+            numero = Number(prompt("Digite apenas números.\nDigite um número (0 para parar):"));
+        }
+
+        soma += numero;
+    }
 
     //SAÍDA
-    
+     alert(`A soma total é: ${soma}`);
+
 </script>

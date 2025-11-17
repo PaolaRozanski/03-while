@@ -5,11 +5,28 @@
     */
 
     //ENTRADA
+    let qtd = Number(prompt("Quantos números da sequência você deseja?"));
+    while (isNaN(qtd) || qtd <= 0) {
+        qtd = Number(prompt("Digite um número válido.\nQuantos números da sequência você deseja?"));
+    }
 
+    let n1 = 0;
+    let n2 = 1;
+    let contador = 1;
+    let resultado = "";
 
     //PROCESSAMENTO
 
+    while (contador <= qtd) {
+        resultado += n1 + ", ";  
+
+        let proximo = n1 + n2;
+        n1 = n2;
+        n2 = proximo;
+
+        contador++;
+    }
 
     //SAÍDA
-    
+    alert(`Sequência de Fibonacci:\n${resultado} `);
 </script>
